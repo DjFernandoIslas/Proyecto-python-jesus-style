@@ -31,7 +31,7 @@ def materias():
     return render_template('alumnos/materias.html', mostrar_sidebar=True)
 #esto para notas
 @app.route('/notas')
-def materias():
+def notas():
     return render_template('alumnos/notas.html', mostrar_sidebar=True)
 
 #aca accedemos a la pagina para iniciar sesion
@@ -49,6 +49,7 @@ def usuario():
         _password = request.form ['txtPassword']
 
         cur = mysql.connection.cursor()
+
         cur.execute('SELECT * FROM usuarios WHERE correo = %s and password = %s', (_correo, _password)) 
         account = cur.fetchone()
         cur.close()
@@ -65,6 +66,7 @@ def usuario():
                 return render_template("/alumnos/userLog.html", mostrar_sidebar=True)
         else:
             return render_template('/alumnos/login.html', mensaje_error="Usuario o contraseña incorrectos!")
+        
     
 
 # SECCION DE BUSQUEDA

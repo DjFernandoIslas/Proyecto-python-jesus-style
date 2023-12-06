@@ -29,6 +29,10 @@ def home():
 @app.route('/materias')
 def materias():
     return render_template('alumnos/materias.html', mostrar_sidebar=True)
+#esto para notas
+@app.route('/notas')
+def materias():
+    return render_template('alumnos/notas.html', mostrar_sidebar=True)
 
 #aca accedemos a la pagina para iniciar sesion
 @app.route('/login')

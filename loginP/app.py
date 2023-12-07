@@ -29,6 +29,10 @@ def home():
 @app.route('/materias')
 def materias():
     return render_template('alumnos/materias.html', mostrar_sidebar=True)
+#esto para perfil
+@app.route('/perfil')
+def perfil():
+    return render_template('alumnos/perfil.html', mostrar_sidebar=True)
 #esto para notas
 @app.route('/notas')
 def notas():
@@ -59,6 +63,11 @@ def usuario():
             session['id'] = account['id']
             session['id_rol'] = account['id_rol']
             session['n_usuario'] = account['nombre']
+            session['n_apellido'] = account['apellido']
+            session['foto'] = account['foto']
+            session['dni'] = account['dni']
+    
+
 
             if session['id_rol'] == 1:
                 return render_template("/alumnos/admin.html", mostrar_sidebar=True)
